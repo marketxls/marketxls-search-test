@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c931f2f7-b3f9-4304-91d0-d83bf639a91f/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/marketxls-search-app",
+    "appService.deploySubpath": "."
+}

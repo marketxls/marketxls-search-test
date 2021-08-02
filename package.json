@@ -10,10 +10,16 @@
   },
   "dependencies": {
     "algoliasearch": "3.33.0",
+    "bootstrap": "^5.0.2",
+    "npm": "^7.20.3",
+    "package": "^1.0.1",
     "react": "16.8.6",
+    "react-bootstrap": "^1.6.1",
     "react-dom": "16.8.6",
     "react-instantsearch-dom": "6.0.0",
-    "react-scripts": "1.1.5"
+    "react-scripts": "^1.1.5",
+    "read-more-react": "^1.0.10",
+    "reinstall": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "4.19.1",

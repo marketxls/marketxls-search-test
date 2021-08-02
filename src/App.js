@@ -1,5 +1,10 @@
 import algoliasearch from 'algoliasearch/lite';
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button'
+
+import Image from 'react-bootstrap/Image'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 import {
   InstantSearch,
   Hits,
@@ -14,25 +19,29 @@ import PropTypes from 'prop-types';
 import './App.css';
 
 const searchClient = algoliasearch(
-  'B1G2GM9NG0',
-  'aadef574be1f9252bb48d4ea09b5cfe5'
+  'WMHEBQM46F',
+  '4a0b3708e9a49d82dcd329e4a4a4ed69'
 );
 
 class App extends Component {
   render() {
     return (
       <div className="ais-InstantSearch">
-        <h1>React InstantSearch e-commerce demo</h1>
-        <InstantSearch indexName="demo_ecommerce" searchClient={searchClient}>
+        <center><h2>Search for a template...</h2></center>
+
+        <InstantSearch indexName="mxls_posts_template" searchClient={searchClient}>
           <div className="left-panel">
             <ClearRefinements />
-            <h2>Brands</h2>
-            <RefinementList attribute="brand" />
+            <h4>Categories</h4>
+            <RefinementList attribute="taxonomies.category" />
             <Configure hitsPerPage={8} />
           </div>
           <div className="right-panel">
             <SearchBox />
             <Hits hitComponent={Hit} />
+
+
+
             <Pagination />
           </div>
         </InstantSearch>
@@ -41,17 +50,25 @@ class App extends Component {
   }
 }
 
+
 function Hit(props) {
   return (
     <div>
-      <img src={props.hit.image} align="left" alt={props.hit.name} />
+
       <div className="hit-name">
-        <Highlight attribute="name" hit={props.hit} />
+        <a href={props.hit.permalink}> <Highlight attribute="post_title" hit={props.hit} /> </a>
+
+        {/* <Highlight attribute="post_title" hit={props.hit} /> */}
+        <p></p>
+        {/* <img src={props.hit.images.thumbnail.url} align="centre" alt={props.hit.name} /> */}
+        <Image src={props.hit.images.thumbnail.url} alt={props.hit.name} thumbnail />
       </div>
       <div className="hit-description">
-        <Highlight attribute="description" hit={props.hit} />
+        {/* <Highlight attribute="content" hit={props.hit} /> */}
+        {/* <Button size="sm" variant="primary">Read More</Button>{' '} */}
+        {/* <Button size="sm" variant="success" href="https://marketxls.com">Buy Template </Button>{' '} */}
       </div>
-      <div className="hit-price">${props.hit.price}</div>
+      {/* <div className="hit-price">${props.hit.price}</div> */}
     </div>
   );
 }
